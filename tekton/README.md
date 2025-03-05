@@ -1,20 +1,3 @@
-- [Tekton pipeline 和 Tekton dashboard](#tekton-pipeline-和-tekton-dashboard)
-  - [安装pipeline](#安装pipeline)
-    - [task 验证](#task-验证)
-      - [1.创建第一个task](#1创建第一个task)
-      - [2.创建第一个task run](#2创建第一个task-run)
-      - [3.验证工作正常](#3验证工作正常)
-      - [4.查询task run 日志](#4查询task-run-日志)
-    - [pipeline 验证](#pipeline-验证)
-      - [1.创建第二个task](#1创建第二个task)
-      - [2.创建pipeline](#2创建pipeline)
-      - [3.创建pipeline run](#3创建pipeline-run)
-      - [4.查询pipeline run 日志](#4查询pipeline-run-日志)
-  - [安装dashboard](#安装dashboard)
-    - [访问](#访问)
-  - [清理](#清理)
-  - [参考](#参考)
-
 # Tekton pipeline 和 Tekton dashboard
 
 ## 安装pipeline
