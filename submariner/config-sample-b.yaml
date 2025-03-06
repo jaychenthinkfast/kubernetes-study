@@ -1,0 +1,43 @@
+apiVersion: kubekey.kubesphere.io/v1alpha2
+kind: Cluster
+metadata:
+  name: sample
+spec:
+  hosts:
+    - {name: hk4, address: 10.0.2.2, internalAddress: 10.0.2.2, port: 22, privateKeyPath: "~/.ssh/id_rsa"}
+  roleGroups:
+    etcd:
+      - hk4
+    control-plane:
+      - hk4
+    worker:
+      - hk4
+  controlPlaneEndpoint:
+    ## Internal loadbalancer for apiservers
+    # internalLoadbalancer: haproxy
+
+    domain: hk4.chenjie.info
+    address: ""
+    port: 6443
+  kubernetes:
+    version: v1.31.2
+    clusterName: cluster.local
+    autoRenewCerts: true
+    containerManager: containerd
+    proxyMode: ipvs
+  network:
+    plugin: calico
+    calico:
+      ipipMode: Never  # IPIP Mode to use for the IPv4 POOL created at start up. If set to a value other than Never, vxlanMode should be set to "Never". [Always | CrossSubnet | Never] [Default: Always]
+      vxlanMode: Always  # VXLAN Mode to use for the IPv4 POOL created at start up. If set to a value other than Never, ipipMode should be set to "Never". [Always | CrossSubnet | Never] [Default: Never]
+      vethMTU: 0  # The maximum transmission unit (MTU) setting determines the largest packet size that can be transmitted through your network. By default, MTU is auto-detected. [Default: 0]
+    kubePodsCIDR: 10.244.64.0/18
+    kubeServiceCIDR: 10.244.0.0/18
+  etcd:
+    type: kubekey
+  registry:
+    privateRegistry: ""
+    namespaceOverride: ""
+    registryMirrors: []
+    insecureRegistries: []
+  addons: []
