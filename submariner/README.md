@@ -305,3 +305,4 @@ Submariner 的功能依赖于几个关键组件：
 
 ## 参考
 * https://xie.infoq.cn/article/2dfcd9239b38a2a80c51267e2
+* https://submariner.io/getting-started/quickstart/kind/
